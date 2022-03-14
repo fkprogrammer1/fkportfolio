@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title>Faizan kazmi</title>
+
+
+{% load static%}
+
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+
+
+	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+
+
+
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap"
+		rel="stylesheet">
+
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
+
+	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+
+</head>
+
+<body>
+    <section class="s1">
+
+		<div class="main-container">
+
+			<div class="greeting-wrapper">
+
+				<h1>My Past Projects</h1>
+	
+			</div>
+
+
+			<div class="post-wrapper">
+
+
+       {% for post in project %}
+				<div>
+					<a href="{% url 'blog' post.slug %}">
+
+					<div class="post">
+
+						<img class="thumbnail" src="{{post.image.url}}">
+
+						<div class="post-preview">
+
+							<h6 class="post-title">{{post.heading}}</h6>
+
+							<p class="post-intro">{{post.text | safe |truncatewords:10}}</p>
+
+							
+
+						</div>
+
+					</div>
+					</a>
+
+				</div>
+        {% endfor %}		
+		</div>
+    </section>
+	<script>
+		let static='/static/'
+		</script>
+	<script type="text/javascript" src="{% static 'script.js' %}"></script>
+	<script src="{% static 'jquery.min.js' %}"></script>
+</body>
+</html>
+
